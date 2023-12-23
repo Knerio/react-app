@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react' ;
+import './App.css'
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Header from "./Header";
+import Calculator from "./Calculator";
+import NotFound from "./NotFound";
+import SoonComponent from "./SoonComponent";
+import {Alert} from "react-bootstrap";
 
-function App() {
-  return (
+// Home page
+const Home = () => (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+
     </div>
-  );
+);
+
+
+
+class App extends Component {
+    render(){
+        return(
+            <Router>
+                <Routes>
+                    <Route path="/" Component={Home}/>
+                    <Route path="/calculator" Component={Calculator}/>
+                    <Route path="/soon" Component={SoonComponent}/>
+
+
+
+                    <Route path="*" element={<NotFound/>} />
+                </Routes>
+            </Router>
+        )
+    }
 }
+
+
 
 export default App;
