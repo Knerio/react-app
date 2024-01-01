@@ -1,11 +1,10 @@
-import React, { Component } from 'react' ;
-import './App.css'
+import React, {Component} from 'react' ;
+import './components/css/App.css'
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Header from "./Header";
-import Calculator from "./Calculator";
-import NotFound from "./NotFound";
-import SoonComponent from "./SoonComponent";
-import {Alert} from "react-bootstrap";
+import Header from "./components/Header";
+import Calculator from "./components/Calculator";
+import NotFound from "./components/NotFound";
+import SoonComponent from "./components/SoonComponent";
 
 // Home page
 const Home = () => (
@@ -18,8 +17,11 @@ const Home = () => (
 
 
 class App extends Component {
-    render(){
-        return(
+    render() {
+
+
+
+        return (
             <Router>
                 <Routes>
                     <Route path="/" Component={Home}/>
@@ -27,14 +29,12 @@ class App extends Component {
                     <Route path="/soon" Component={SoonComponent}/>
 
 
-
-                    <Route path="*" element={<NotFound/>} />
+                    <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Router>
         )
     }
 }
-
 
 
 export default App;
